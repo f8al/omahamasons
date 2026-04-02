@@ -89,22 +89,9 @@ img {
   text-decoration: none;
 }
 
-.logo-icon {
-  width: 50px;
+.logo-img {
   height: 50px;
-}
-
-.logo-text h1 {
-  font-size: 1.4rem;
-  color: var(--primary-dark);
-  margin: 0;
-  line-height: 1.2;
-}
-
-.logo-text .tagline {
-  font-size: 0.75rem;
-  color: var(--accent-dark);
-  font-style: italic;
+  width: auto;
 }
 
 /* Hamburger */
