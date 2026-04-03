@@ -25,17 +25,11 @@
       <nav class="main-nav" id="mainNav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li class="has-dropdown">
-            <a href="calendar.html">Calendar</a>
-            <div class="dropdown">
-              <a href="trestle-board.html">Trestle Board</a>
-            </div>
-          </li>
+          <li><a href="calendar.html">Calendar</a></li>
           <li><a href="scholarships.html">Scholarships &amp; Forms</a></li>
           <li><a href="dues.html">Lodge Dues</a></li>
           <li><a href="club-1919.html">Club 1919</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="shop.html">Shop</a></li>
           <li><a href="https://www.paypal.com/donate" target="_blank" rel="noopener" class="btn-donate">Donate</a></li>
         </ul>
       </nav>
