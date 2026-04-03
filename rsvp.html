@@ -253,13 +253,11 @@
     font-family: 'Roboto', sans-serif;
   }
   .form-status.success {
-    display: block;
     background: rgba(72,187,120,0.15);
     border: 1px solid rgba(72,187,120,0.5);
     color: #68d391;
   }
   .form-status.error {
-    display: block;
     background: rgba(245,101,101,0.12);
     border: 1px solid rgba(245,101,101,0.4);
     color: #fc8181;
@@ -327,6 +325,7 @@
 </div>
 
 <section class="content-page">
+  <div class="container">
 
     <div class="rsvp-grid">
 
@@ -371,10 +370,10 @@
             <h3>Pay Online</h3>
             <p>Contribute via PayPal or Venmo after submitting your RSVP, or pay in person at the door. No amount is required &mdash; give what you can.</p>
             <div class="pay-buttons">
-              <a href="https://paypal.me/@mizpah302" target="_blank" rel="noopener" class="btn-paypal">
+              <a href="https://www.paypal.me/mizpah302" target="_blank" rel="noopener" class="btn-paypal">
                 <span class="pay-icon">P</span> Pay via PayPal
               </a>
-              <a href="https://venmo.com/@mizpah302" target="_blank" rel="noopener" class="btn-venmo">
+              <a href="https://www.venmo.com/u/mizpah302" target="_blank" rel="noopener" class="btn-venmo">
                 <span class="pay-icon">V</span> Pay via Venmo
               </a>
             </div>
@@ -443,7 +442,7 @@
           </div>
           <div class="form-status error" id="errorMsg">
             Something went wrong submitting your RSVP. Please try again or email
-            <a href="mailto:Mizpah302sec@gmail.com" style="color:#fc8181;">Mizpah302sec@gmail.com</a>.
+            <a href="/cdn-cgi/l/email-protection#561b3f2c26373e65666425333516313b373f3a7835393b" style="color:#fc8181;"><span class="__cf_email__" data-cfemail="226f4b5852434a11121051474162454f434b4e0c414d4f">[email&#160;protected]</span></a>.
           </div>
         </div>
       </div>
@@ -476,7 +475,7 @@
         <p>1124 South 48th Street<br>Omaha, Nebraska</p>
         <p style="margin-top:8px;">PO Box 6362<br>Omaha, NE 68106-0362</p>
         <p style="margin-top:8px;">(402) 558-0666</p>
-        <a href="mailto:Mizpah302sec@gmail.com">Mizpah302sec@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#014c687b71606932313372646241666c60686d2f626e6c"><span class="__cf_email__" data-cfemail="15587c6f65747d262527667076557278747c793b767a78">[email&#160;protected]</span></a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -485,14 +484,8 @@
   </div>
 </footer>
 
-<script>
-// ─────────────────────────────────────────────────────────────────
-// CONFIGURATION — update these two values before going live
-// ─────────────────────────────────────────────────────────────────
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyw_lm6eQuK4Z_xS0taz3RsYfH1wo52VC96yjlknHH2MTeOB9P7SPpxF32ti2ZGHRzyiQ/exec';
-// Replace with your Google Apps Script web app URL after deployment
-// Example: 'https://script.google.com/macros/s/AKfycb.../exec'
-// ─────────────────────────────────────────────────────────────────
 
 function adjustCount(delta) {
   const input = document.getElementById('guestCount');
@@ -586,76 +579,5 @@ document.querySelectorAll('.has-dropdown > a').forEach(function(link) {
 });
 </script>
 
-<!--
-════════════════════════════════════════════════════════════════════
-  GOOGLE SHEETS SETUP GUIDE
-  Complete these steps once to wire up RSVP data collection.
-════════════════════════════════════════════════════════════════════
-
-STEP 1 — Create the spreadsheet
-  1. Go to sheets.google.com and create a new sheet.
-  2. Name it "Mizpah Dinner RSVPs" (or anything you like).
-  3. In Row 1, add these headers in order (A through I):
-     Timestamp | First Name | Last Name | Email | Phone | Role | Seats | Dietary Notes | Month
-
-STEP 2 — Add the Apps Script
-  1. In the spreadsheet, go to Extensions > Apps Script.
-  2. Delete any default code and paste the following:
-
-─────────────────────────────────────────────────────────────────
-function doPost(e) {
-  try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var data = JSON.parse(e.postData.contents);
-    sheet.appendRow([
-      data.timestamp,
-      data.firstName,
-      data.lastName,
-      data.email,
-      data.phone,
-      data.role,
-      data.guestCount,
-      data.dietary || '',
-      new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })
-    ]);
-    return ContentService
-      .createTextOutput(JSON.stringify({ result: 'success' }))
-      .setMimeType(ContentService.MimeType.JSON);
-  } catch(err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ result: 'error', error: err.toString() }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}
-─────────────────────────────────────────────────────────────────
-
-STEP 3 — Deploy as a web app
-  1. Click Deploy > New Deployment.
-  2. Click the gear icon next to "Select type" and choose Web app.
-  3. Set:
-       Execute as:  Me
-       Who has access:  Anyone
-  4. Click Deploy. Authorize when prompted.
-  5. Copy the Web App URL shown after deployment.
-
-STEP 4 — Paste the URL into this file
-  Find this line near the top of the <script> block:
-    const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
-  Replace the placeholder with your copied URL.
-
-STEP 5 — Add PayPal & Venmo links
-  Find and replace:
-    YOUR_PAYPAL_HANDLE  →  your PayPal.me username  (e.g. MizpahLodge302)
-    YOUR_VENMO_HANDLE   →  your Venmo handle        (e.g. @MizpahLodge302)
-
-STEP 6 — Remove the yellow setup banner
-  Delete the <div id="setupBanner"> block from the HTML above
-
-STEP 7 — Add rsvp.html to your nav on other pages
-  In index.html, dues.html, contact.html, etc., add to the <ul>:
-    <li><a href="rsvp.html">Dinner RSVP</a></li>
-
-════════════════════════════════════════════════════════════════════
--->
 </body>
 </html>
