@@ -27,7 +27,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="calendar.html">Calendar</a></li>
-          <li><a href="scholarships.html">Scholarships &amp; Forms</a></li>
+          <li><a href="scholarships.html">Membership</a></li>
           <li><a href="dues.html">Lodge Dues</a></li>
           <li><a href="club-1919.html">Club 1919</a></li>
           <li><a href="contact.html">Contact Us</a></li>
